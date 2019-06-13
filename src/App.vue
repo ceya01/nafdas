@@ -11,7 +11,8 @@
     NameCard
     section.p-outputSection
       button.c-btn.p-btnNetPrint ネットプリント
-      button.c-btn.p-btnSave 画像を保存
+      button.c-btn.
+      p-btnSave 画像を保存
     section.p-howto
       h2.__title つかいかた
       p TwitterIDを入力するだけで名札が作れます！
