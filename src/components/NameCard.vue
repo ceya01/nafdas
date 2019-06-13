@@ -18,3 +18,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.l-header{
+  background-color: slategrey;
+  color: #FFF;
+  padding:2em 0;
+  width: 100%;
+}
+</style>

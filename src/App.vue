@@ -1,30 +1,25 @@
 <template lang="pug">
 #app
   header.l-header
-    .__inner
-      h1.p-headtitle Nafdas
-      span.p-subTitle ナフダス ー オフ会用の名札を簡単に作成・印刷するツール
+    HeaderInner
   main.l-main
-    section.p-inputSection
-      label(for="twID") TwitterID
-      input.__inputText#twID(type="text" placeholder="TwitterIDを入力")
+    InputSection
     NameCard
-    section.p-outputSection
-      button.c-btn.p-btnNetPrint ネットプリント
-      button.c-btn.
-      p-btnSave 画像を保存
-    section.p-howto
-      h2.__title つかいかた
-      p TwitterIDを入力するだけで名札が作れます！
+    OutPutSection
   footer.l-footer
 </template>
 
 <script>
 import NameCard from '@/components/NameCard'
+import HeaderInner from '@/components/HeaderInner'
+import InputSection from '@/components/InputSection'
+import OutPutSection from '@/components/OutPutSection'
+import Description from '@/components/Description'
+
 export default {
   name: 'App',
   components: {
-    NameCard
+    NameCard,HeaderInner,InputSection,OutPutSection,Description
   }
 }
 </script>
@@ -35,6 +30,7 @@ export default {
 //////////////////////////////////////////////////
 
 //ここに書くと反映されない
+// →そもそもコンポーネントの中しかスタイルつかえないっぽい
 body{
   background-color: antiquewhite;
   margin: 0;
@@ -56,32 +52,17 @@ body{
 //////////////////////////////////////////////////
 // Layout
 //////////////////////////////////////////////////
-.l-inner{
-
-}
 
 .l-header{
   background-color: slategrey;
   color: #FFF;
+  padding:1.5em 0;
   width: 100%;
 }
-
 .l-main{
   margin:0 auto;
   padding:0 1em;
   width: 100%;
   max-width: 800px;
 }
-//////////////////////////////////////////////////
-// Component
-//////////////////////////////////////////////////
-
-
-
-//////////////////////////////////////////////////
-// Project
-//////////////////////////////////////////////////
-
-
-
 </style>
