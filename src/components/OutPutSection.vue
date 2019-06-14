@@ -1,6 +1,6 @@
 <template lang="pug">
   section.p-outputSection
-    button.c-btn.p-btnNetPrint ネットプリント
+    //-button.c-btn.p-btnNetPrint ネットプリント
     button.c-btn.p-btnSave 画像を保存
 </template>
 

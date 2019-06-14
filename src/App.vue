@@ -6,7 +6,10 @@
     InputSection
     NameCard
     OutPutSection
+    Description
   footer.l-footer
+    span.__text (C) ceya-net
+    
 </template>
 
 <script>
@@ -52,17 +55,24 @@ body{
 //////////////////////////////////////////////////
 // Layout
 //////////////////////////////////////////////////
-
+$bgDark:slategrey;
 .l-header{
-  background-color: slategrey;
+  background-color: $bgDark;
   color: #FFF;
   padding:1.5em 0;
   width: 100%;
 }
 .l-main{
   margin:0 auto;
-  padding:0 1em;
+  padding:1em;
   width: 100%;
   max-width: 800px;
+}
+.l-footer{
+  background-color: $bgDark;
+  color: #FFF;
+  padding: 1em 0;
+  bottom:0;
+  width: 100%;
 }
 </style>

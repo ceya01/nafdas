@@ -2,6 +2,8 @@
   section.p-description
     h2.__title つかいかた
     p TwitterIDを入力するだけで名札が作れます！
+      br 
+      |Just Do IT!!!
 </template>
 
 <script>
@@ -16,10 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.l-header{
-  background-color: slategrey;
-  color: #FFF;
-  padding:2em 0;
-  width: 100%;
+.p-description{
+  text-align: left;
 }
 </style>
