@@ -1,7 +1,7 @@
 <template lang="pug">
   section.p-inputSection
     label(for="twID") TwitterID: 
-    input.__inputText#twID(type="text" placeholder="TwitterIDを入力")
+    input.__inputText#twID(type="text" placeholder="（機能未実装）")
 </template>
 
 <script>

@@ -11,15 +11,22 @@ import html2canvas from 'html2canvas'
 export default {
   name: "OutPutSection",
   data() {
-    return {};
+    return {
+      canvas: null  
+    };
   },
   methods: {
     onClickSave(e) {
       console.log("onclickSave:", e);
       html2canvas(document.querySelector(".p-nameCard")).then(canvas =>{
         //console.log(canvas);
-        document.querySelector(".p-outPutImgWrap").appendChild(canvas)
+        let doc = document.querySelector(".p-outPutImgWrap");
+        if(doc.firstChild){
+          doc.removeChild(doc.firstChild);
+        }
+        doc.appendChild(canvas)
         let imgBase64 = canvas.toDataURL('imgae/png');
+        this.canvas = canvas;
         // base64データをblobに変換
         //var blob = Base64toBlob(imgBase64);
         // blobデータをa要素を使ってダウンロード
