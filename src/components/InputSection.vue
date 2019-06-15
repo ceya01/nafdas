@@ -20,6 +20,7 @@ export default {
   >.__inputText{
     outline: 1px solid #666;
     padding: 0 0.5em;
+    background-color: #fff;
   }
 }
 </style>

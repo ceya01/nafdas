@@ -53,7 +53,7 @@ console.log("namecard");
   height:$cardHeight;
 
   background-color: #fff;
-  border: #333 solid 1px;
+  //border: #999 solid 1px;
   margin: 1em auto;
   position: relative;
   
