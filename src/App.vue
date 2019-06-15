@@ -18,6 +18,7 @@ import HeaderInner from '@/components/HeaderInner'
 import InputSection from '@/components/InputSection'
 import OutPutSection from '@/components/OutPutSection'
 import Description from '@/components/Description'
+import 'ress'
 
 export default {
   name: 'App',
