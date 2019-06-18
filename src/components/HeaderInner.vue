@@ -1,7 +1,7 @@
 <template lang="pug">
 .l-header__inner
-  h1.p-headTitle Nafdas
-  span.p-subTitle ナフダス ー オフ会用の名札を簡単に作成・印刷するツール
+  h1.p-headTitle なふだす！
+  span.p-subTitle オフ会用の名札を簡単に作成・印刷するツール
 </template>
 
 <script>
