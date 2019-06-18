@@ -1,7 +1,7 @@
 {
-  "name": "nametag_maker",
+  "name": "nafdas",
   "version": "1.0.0",
-  "description": "かんたん名札メーカー",
+  "description": "なふだす！",
   "author": "ceya",
   "private": true,
   "scripts": {
