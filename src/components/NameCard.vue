@@ -8,7 +8,7 @@ section.p-nameCard
     textarea.__textareaName.c-inCardInput(type="text" placeholder="（名前を入力）") 
   .__idBox
     label.__labelID(for="twIDinCard") @ 
-    input.__inputID.c-inCardInput#twIDinCard(type="text" placeholder="(twitter ID)") 
+    input.__inputID.c-inCardInput#twIDinCard(type="text" placeholder="(twitter ID)" :value="twitterID") 
 </template>
 
 <script>
@@ -32,6 +32,11 @@ export default {
         this.uploadedImage = e.target.result;
       };
       render.readAsDataURL(file);
+    }
+  },
+  computed:{
+    twitterID : function(){
+      return this.$store.getters.twitterID
     }
   }
 }

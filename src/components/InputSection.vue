@@ -2,6 +2,7 @@
   section.p-inputSection
     label(for="twID") TwitterID:
     input.__inputText#twID(type="text" placeholder="（機能未実装）" :value="twitterID" v-on:change ="onChangeInput")
+    //-p twID: {{twitterID}}
 </template>
 
 <script>

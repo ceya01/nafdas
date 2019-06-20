@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Twitter from 'twitter'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    twitterID: 'a'
+    twitterID: '',
+    twitterName: '',
+    twitterIcon: ''
   },
   getters: {
     // 単純にステートを返す
@@ -20,6 +23,7 @@ export default new Vuex.Store({
   },
   actions: {
     updateTwitterID ({ commit }, message) {
+      // this.state.twitterID = message //これでも動くが、原則非同期更新にすべき
       commit('setTwitterID', message)
     }
   }
