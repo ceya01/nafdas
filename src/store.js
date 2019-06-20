@@ -5,21 +5,22 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    count: 5
+    twitterID: 'a'
+  },
+  getters: {
+    // 単純にステートを返す
+    twitterID (state) {
+      return state.twitterID
+    }
   },
   mutations: {
-    increment (state) {
-      state.count++
-    },
-    decrement (state) {
-      state.count--
+    setTwitterID (state, payload) {
+      state.twitterID = payload
     }
   },
   actions: {
-    increment: ({ commit }) => {
-      setTimeout(() => {
-        commit('increment')
-      }, 5000)
+    updateTwitterID ({ commit }, message) {
+      commit('setTwitterID', message)
     }
   }
 })

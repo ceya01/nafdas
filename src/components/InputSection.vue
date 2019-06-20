@@ -1,14 +1,21 @@
 <template lang="pug">
   section.p-inputSection
     label(for="twID") TwitterID:
-    input.__inputText#twID(type="text" placeholder="（機能未実装）")
+    input.__inputText#twID(type="text" placeholder="（機能未実装）" :value="twitterID" v-on:change ="onChangeInput")
 </template>
 
 <script>
 export default {
   name: 'InputSection',
-  data () {
-    return {}
+  computed:{
+    twitterID : function(){
+      return this.$store.getters.twitterID
+    }
+  },methods:{
+    onChangeInput: function(event){
+      console.log('onChangeInput');
+      this.$store.dispatch('updateTwitterID',event.target.value)
+    }
   }
 }
 </script>
