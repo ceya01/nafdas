@@ -1,3 +1,4 @@
+
 <template lang="pug">
 #app
   header.l-header
@@ -7,31 +8,31 @@
     NameCard
     OutPutSection
     Description
-  footer.l-footer
+  footer.l-footer 
     span.__text (C) ceya-net
     
 </template>
 
 <script>
-import NameCard from '@/components/NameCard'
-import HeaderInner from '@/components/HeaderInner'
-import InputSection from '@/components/InputSection'
-import OutPutSection from '@/components/OutPutSection'
-import Description from '@/components/Description'
-import 'ress'
+import NameCard from "@/components/NameCard"
+import HeaderInner from "@/components/HeaderInner"
+import InputSection from "@/components/InputSection"
+import OutPutSection from "@/components/OutPutSection"
+import Description from "@/components/Description"
+import "ress"
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    NameCard,HeaderInner,InputSection,OutPutSection,Description
-  },
-  data: {
-    count: 0
+    NameCard,
+    HeaderInner,
+    InputSection,
+    OutPutSection,
+    Description
   }
 }
-
-console.log('store:',$store);
-
+ 
+//console.log("store:", $store)
 </script>
 
 <style lang="scss" scoped>
@@ -39,40 +40,41 @@ console.log('store:',$store);
 // foundation
 //////////////////////////////////////////////////
 
-
-#app{
- // font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  font-family:"游ゴシック Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,sans-serif;
+#app {
+  // font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "游ゴシック Medium", YuGothic, YuGothicM,
+    "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo,
+    sans-serif;
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   text-align: center;
   margin: 0;
-  padding: 0;
+  padding: 0; 
 }
 
 //////////////////////////////////////////////////
 // Layout
 //////////////////////////////////////////////////
-$bgDark:slategrey;
-.l-header{
+$bgDark: slategrey;
+.l-header {
   background-color: $bgDark;
-  color: #FFF;
-  padding:1.5em 0;
+  color: #fff;
+  padding: 1.5em 0;
   width: 100%;
 }
-.l-main{
-  margin:0 auto;
-  padding:1em;
+.l-main {
+  margin: 0 auto;
+  padding: 1em;
   width: 100%;
   max-width: 800px;
 }
-.l-footer{
+.l-footer {
   background-color: $bgDark;
-  color: #FFF;
+  color: #fff;
   padding: 1em 0;
-  bottom:0;
+  bottom: 0;
   width: 100%;
 }
 </style>

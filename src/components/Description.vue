@@ -18,11 +18,11 @@
 
 <script>
 export default {
-  name: "Description",
-  data() {
-    return {};
+  name: 'Description',
+  data () {
+    return {}
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,16 +1,14 @@
 <template lang="pug">
   section.p-inputSection
-    label(for="twID") TwitterID: 
+    label(for="twID") TwitterID:
     input.__inputText#twID(type="text" placeholder="（機能未実装）")
 </template>
 
 <script>
 export default {
   name: 'InputSection',
-    data () {
-    return {
-       
-    } 
+  data () {
+    return {}
   }
 }
 </script>
