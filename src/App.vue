@@ -24,8 +24,14 @@ export default {
   name: 'App',
   components: {
     NameCard,HeaderInner,InputSection,OutPutSection,Description
+  },
+  data: {
+    count: 0
   }
 }
+
+console.log('store:',$store);
+
 </script>
 
 <style lang="scss" scoped>
