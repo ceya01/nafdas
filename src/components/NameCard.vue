@@ -49,11 +49,27 @@ console.log("namecard");
 </script>
 
 <style lang="scss" scoped>
+//名札サイズは 91x55 mm 想定
+$cardWidth: 91mm; // 300px;
+$cardHeight:55mm; // 180px;
+
+//各パーツのサイズ、配置
+$iconWidth:24mm;  
+$iconHeight:$iconWidth; // 正方形なので heightも同じ値
+$iconX:4mm;
+$iconY:($cardHeight - $iconHeight) / 2;
+
+$nameBoxWidth:56mm;
+$nameBoxHeight:24mm;
+$nameBoxX:31mm;
+$nameBoxY:($cardHeight - $nameBoxHeight) / 2;
+
+$idBoxWidth:$cardWidth - 4mm;
+$idBoxHeight:10mm;
+$idBoxX:4mm;
+$idBoxY:$cardHeight - $idBoxHeight - 4mm;
+
 .p-nameCard{
-  //名札サイズは 91x55 想定
-  $cardWidth:300px;
-  $cardHeight:180px;
-  
   width:$cardWidth;
   height:$cardHeight;
 
@@ -63,14 +79,11 @@ console.log("namecard");
   position: relative;
   
   >.__iconBox{
-    $width:80px;
-    $height:$width;
-    width:$width;
-    height:$height;
-
     position: absolute;
-    top:calc((#{$cardHeight} - #{$height}) / 2);
-    left:10px;
+    width:$iconWidth;
+    height:$iconHeight;
+    left:$iconX;
+    top:$iconY;
     
     >.__icon,>.__inputImg{
       position: absolute;
@@ -86,18 +99,24 @@ console.log("namecard");
     }
   }
   >.__nameBox{
-    $width:190px;
-    $height:60px;
-    width:$width;
-    height:$height;
     position: absolute;
-    top:calc((#{$cardHeight} - #{$height}) / 2);
-    left:100px;
-    font-size:20px;
+    width:$nameBoxWidth;
+    height:$nameBoxHeight;
+    left:$nameBoxX;
+    top:$nameBoxY;
+
+    font-size:6.5mm;
     font-weight: bold;
     >.__textareaName{
+
       resize: none;
       overflow: hidden;
+      position: relative;
+      width:100%;
+      height:17mm;
+      line-height: 8mm;
+      top:3.75mm;
+      letter-spacing: 0.5mm;
     }
   }
   >.__idBox{

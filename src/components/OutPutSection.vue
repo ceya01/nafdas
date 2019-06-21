@@ -17,8 +17,12 @@ export default {
     }
   },
   methods: {
-    onClickSave(e) {
-      console.log("onclickSave:", e)
+    onClickSave(evt) {
+      console.log("onclickSave:", evt)
+      
+    },
+    createCanvas(){
+      console.log("createCanvas:")
       html2canvas(document.querySelector(".p-nameCard")).then(canvas =>{
         //console.log(canvas);
         let doc = document.querySelector(".p-outPutImgWrap")
@@ -37,6 +41,7 @@ export default {
     }
   }
 };
+
 </script>
 
 <style lang="scss" scoped>
