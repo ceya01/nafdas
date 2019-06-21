@@ -1,11 +1,11 @@
 <template lang="pug">
 section.p-nameCard
   .__iconBox
-    img.__icon( src="@/assets/avatar_default_150sq.png" v-if="uploadedImage===''")
-    img.__icon( :src="uploadedImage"  v-if="uploadedImage!==''")
+    img.__icon( src="@/assets/avatar_default_150sq.png" v-if="twitterIcon===''")
+    img.__icon( :src="twitterIcon"  v-if="twitterIcon!==''")
     input.__inputImg(type="file" v-on:change="onSelectFile")
   .__nameBox
-    textarea.__textareaName.c-inCardInput(type="text" placeholder="（名前を入力）") 
+    textarea.__textareaName.c-inCardInput(type="text" placeholder="（名前を入力）" :value="twitterName") 
   .__idBox
     label.__labelID(for="twIDinCard") @ 
     input.__inputID.c-inCardInput#twIDinCard(type="text" placeholder="(twitter ID)" :value="twitterID") 
@@ -29,15 +29,22 @@ export default {
       console.log("showImg:",file);
       let render = new FileReader();
       render.onload= (e)=>{
-        this.uploadedImage = e.target.result;
+        // this.uploadedImage = e.target.result;
+        this.$store.dispatch('updateTwitterIcon',e.target.result)
       };
-      render.readAsDataURL(file);
+      //render.readAsDataURL(file);
     }
   },
   computed:{
     twitterID : function(){
       return this.$store.getters.twitterID
-    }
+    },
+    twitterName : function(){
+      return this.$store.getters.twitterName
+    },
+    twitterIcon : function(){
+      return this.$store.getters.twitterIcon
+    },
   }
 }
 

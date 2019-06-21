@@ -15,7 +15,8 @@ export default {
   },methods:{
     onChangeInput: function(event){
       console.log('onChangeInput');
-      this.$store.dispatch('updateTwitterID',event.target.value)
+      let twitterID = event.target.value;
+      this.$store.dispatch('updateTwitterID',twitterID)
     }
   }
 }
