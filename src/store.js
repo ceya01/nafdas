@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Twitter from 'twitter'
 
 Vue.use(Vuex)
 
