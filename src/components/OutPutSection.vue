@@ -45,7 +45,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.p-outputSection{
+  @media print{
+    display: none;
+  }
+}
 .p-outPutImgWrap{
-  margin:1em auto
+  margin:1em auto;
+
 }
 </style>

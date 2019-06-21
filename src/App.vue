@@ -63,6 +63,9 @@ $bgDark: slategrey;
   color: #fff;
   padding: 1.5em 0;
   width: 100%;
+  @media print{
+    display: none;
+  }
 }
 .l-main {
   margin: 0 auto;
@@ -76,5 +79,8 @@ $bgDark: slategrey;
   padding: 1em 0;
   bottom: 0;
   width: 100%;
+  @media print{
+    display: none;
+  }
 }
 </style>

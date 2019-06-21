@@ -28,5 +28,8 @@ export default {
     padding: 0 0.5em;
     background-color: #fff;
   }
+  @media print{
+    display: none;
+  }
 }
 </style>

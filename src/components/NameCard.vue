@@ -59,7 +59,7 @@ $iconHeight:$iconWidth; // 正方形なので heightも同じ値
 $iconX:4mm;
 $iconY:($cardHeight - $iconHeight) / 2;
 
-$nameBoxWidth:56mm;
+$nameBoxWidth:57mm;
 $nameBoxHeight:24mm;
 $nameBoxX:31mm;
 $nameBoxY:($cardHeight - $nameBoxHeight) / 2;
@@ -74,7 +74,7 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
   height:$cardHeight;
 
   background-color: #fff;
-  //border: #999 solid 1px;
+  border: #aaa dashed 1px;
   margin: 1em auto;
   position: relative;
   

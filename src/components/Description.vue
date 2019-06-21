@@ -26,8 +26,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .p-description {
   text-align: left;
+  @media print{
+    display: none;
+  }
 }
 h2 {
   margin-bottom: 0.5em;

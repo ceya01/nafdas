@@ -17,7 +17,6 @@ export default {
 
 <style lang="scss" scoped>
 .l-header__inner{
-
 }
 .p-headTitle{
   margin:0 0 0.5em;
