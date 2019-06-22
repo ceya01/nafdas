@@ -17,8 +17,13 @@ export default {
 
 <style lang="scss" scoped>
 .l-header__inner{
+  color: ghostwhite;
 }
 .p-headTitle{
   margin:0 0 0.5em;
+  color: ghostwhite;
+}
+.p-subTitle{
+  color: ghostwhite;
 }
 </style>

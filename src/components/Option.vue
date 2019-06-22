@@ -4,22 +4,40 @@
     div.__itemList
       div.c-item.__fontSize
         label.c-label.__labelFontSize(for="fontSize") 文字サイズ
-        input.c-input.__inputFontSize#fontSize(type="number" placeholder="文字サイズを指定" value="6")
+        input.c-input.__inputFontSize#fontSize(type="number" placeholder="文字サイズを指定" v-model="option.fontSize" @change="onChangeInput")
+      div.c-item.__numLine
+        label.c-label.__labelNumLine(for="numLine") 行数
+        input.c-input.__inputFontName#fontName(type="number" placeholder="行数" v-model="option.numLine")
       div.c-item.__fontName
         label.c-label.__labelFontName(for="fontName") フォント
-        input.c-input.__inputFontName#fontName(type="text" placeholder="フォント名を指定")
+        input.c-input.__inputFontName#fontName(type="text" placeholder="フォント名を指定" v-model="option.fontName")
 </template>
 
 <script>
 export default {
   name: 'Option',
-  computed:{
-    twitterID : function(){
-      return this.$store.getters.twitterID
+  data: function () {
+    //一時保存用　storeから読み込んで同期
+    return {
+      vmFontSize: 6,
+      vmFontname: 'デフォルト',
+      vmNumLine: 1
     }
-  },methods:{
-    onChangeInput: function(event){
-      console.log('onChangeInput');
+  },
+  computed:{
+    option :{
+      get (){
+        return this.$store.getters.option
+      },
+      set (value){
+        this.$store.commit('setOption', value)
+      }
+    }
+  },
+  methods:{
+    onChangeInput: function(evt){
+      console.log('onChangeInput',evt.target.value,this.$store.getters.option.fontSize,this.vmFontSize);
+
     }
   }
 }
@@ -35,28 +53,34 @@ export default {
   }
   >.__itemList{
     display: flex;
+    flex-wrap:wrap;
     >.c-item{
       text-align: left;
-      margin-bottom:0.5em;
+      margin-bottom:1em;
       font-size:14px;
       //min-width: 50%;
       padding-right: 1em;
       >.c-label{
-        display: inline-block;
+        display: block;
         margin-bottom: 0.2em;
       }
       >.c-input{
         outline: 1px solid #999;
-        padding: 0 0.5em;
+        padding: 0.3em;
         background-color: #fff;
+        width: 100%;
       }
     }
     >.__fontSize{
-      flex-grow: 1;
+      flex: 0 0 50%;
+    }
+    >.__numLine{
+      flex: 0 0 50%;
     }
     >.__fontName{
-      flex-grow: 2;
+      flex: 0 0 100%;
     }
+    
   }
   @media print{
     display: none;

@@ -1,3 +1,12 @@
+@import "mixin.scss";
+
+*{
+  font-family:"游ゴシック Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,sans-serif;
+  color:#444;
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+}
+
 body{
   background-color: ghostwhite;
   margin: 0;

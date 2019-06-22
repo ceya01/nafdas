@@ -72,9 +72,10 @@ $bgDark: slategrey;
 }
 .l-main {
   margin: 0 auto;
-  padding: 1em;
+  padding: 0 1em;
   width: 100%;
   max-width: 800px;
+  overflow: hidden;
 }
 .l-footer {
   background-color: $bgDark;

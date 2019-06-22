@@ -32,6 +32,8 @@ export default {
       console.log("setIcon> render.onload:",e);
         // this.uploadedImage = e.target.result;
         this.$store.dispatch('updateTwitterIcon',e.target.result)
+        // this.$store.commit('setTwitterIcon',e.target.result) //これでも代用可能
+        // console.log("after diapatch/commit",d,c);
       };
       render.readAsDataURL(file);
     }

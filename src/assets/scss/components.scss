@@ -1,6 +1,12 @@
+@import "mixin.scss";
+
 .c-btn{
   padding: 0.5em 1em;
   color: #fff;
-  background-color:#333;
-  border-radius: 5px;
+  background-color:#444;
+  border-radius: 0.5em;
+  @include shadow;
+  &:hover{
+    @include onHoverButton;
+  }
 }

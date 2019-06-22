@@ -9,7 +9,12 @@ export default new Vuex.Store({
   state: {
     twitterID: '',
     twitterName: '',
-    twitterIcon: ''
+    twitterIcon: '',
+    option: {
+      fontSize: 6,
+      fontName: 'デフォルト',
+      numLine: 1
+    }
   },
   getters: {
     twitterID (state) {
@@ -20,6 +25,9 @@ export default new Vuex.Store({
     },
     twitterIcon (state) {
       return state.twitterIcon
+    },
+    option (state) {
+      return state.option
     }
   },
   mutations: {
@@ -30,14 +38,16 @@ export default new Vuex.Store({
       state.twitterName = payload
     },
     setTwitterIcon (state, payload) {
-      console.log('setTwitterIcon' + payload)
       state.twitterIcon = payload
+      console.log('setTwitterIcon', payload)
+    },
+    setOption (state, payload) {
+      state.option = payload
     }
   },
   actions: {
     updateTwitterID ({ commit }, message) {
       // idを保存
-      // this.state.twitterID = message //←これでも動くが、原則非同期更新にすべき
       commit('setTwitterID', message)
 
       // ajaxでphp呼んで、twitterIDを入力して、icon,nameを取得し、storeに保存
@@ -69,6 +79,9 @@ export default new Vuex.Store({
     },
     updateTwitterIcon ({ commit }, message) {
       commit('setTwitterIcon', message)
+    },
+    updateOption ({ commit }, message) {
+      commit('setOption', message)
     }
   }
 })

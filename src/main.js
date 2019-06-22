@@ -8,6 +8,7 @@ import store from './store'
 Vue.config.productionTip = false
 
 /* グローバルcss */
+require('@/assets/scss/mixin.scss')
 require('@/assets/scss/foundation.scss')
 require('@/assets/scss/components.scss')
 
