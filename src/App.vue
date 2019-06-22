@@ -10,7 +10,7 @@
     OutPutSection
     Description
   footer.l-footer 
-    span.__text nafdas ver 1.0 / © 2019- ceya-net.
+    span.__text nafdas ver 1.0 / © 2019- <a href="https://ce-ya/net" target="_blank">ceya-net</a>
     
 </template>
 
@@ -86,6 +86,9 @@ $bgDark: slategrey;
   width: 100%;
   >.__text{
     color: #fff;  
+    >a{
+      color: #fff;
+    }
   }
   @media print{
     display: none;
