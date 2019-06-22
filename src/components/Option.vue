@@ -1,13 +1,12 @@
 <template lang="pug">
-  section.p-inputSection
-    label(for="twID") TwitterID:
-    input.__inputText#twID(type="text" placeholder="TwitterIDを入力" :value="twitterID" v-on:change ="onChangeInput")
-    //-p twID: {{twitterID}}
+  section.p-option
+    h3 オプション
+    input.__inputText(type="text" placeholder="TwitterIDを入力")
 </template>
 
 <script>
 export default {
-  name: 'InputSection',
+  name: 'Option',
   computed:{
     twitterID : function(){
       return this.$store.getters.twitterID
@@ -15,15 +14,13 @@ export default {
   },methods:{
     onChangeInput: function(event){
       console.log('onChangeInput');
-      let twitterID = event.target.value;
-      this.$store.dispatch('updateTwitterID',twitterID)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.p-inputSection{
+.p-option{
   >.__inputText{
     outline: 1px solid #666;
     padding: 0 0.5em;

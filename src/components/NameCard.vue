@@ -5,7 +5,7 @@ section.p-nameCard
     img.__icon( :src="twitterIcon"  v-if="twitterIcon!==''")
     input.__inputImg(type="file" v-on:change="onSelectFile")
   .__nameBox
-    textarea.__textareaName.c-inCardInput(type="text" placeholder="（名前を入力）" :value="twitterName") 
+    textarea.__textareaName.c-inCardInput(type="text" placeholder="（ここに名前）" :value="twitterName") 
   .__idBox
     label.__labelID(for="twIDinCard") @ 
     input.__inputID.c-inCardInput#twIDinCard(type="text" placeholder="(twitter ID)" :value="twitterID") 
@@ -100,6 +100,7 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
       height: 100%;
     }
     >.__icon{
+      border-radius:50%;
     }
     >.__inputImg{
       opacity: 0;

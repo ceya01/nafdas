@@ -6,6 +6,7 @@
   main.l-main
     InputSection
     NameCard
+    Option
     OutPutSection
     Description
   footer.l-footer 
@@ -14,9 +15,10 @@
 </template>
 
 <script>
-import NameCard from "@/components/NameCard"
 import HeaderInner from "@/components/HeaderInner"
 import InputSection from "@/components/InputSection"
+import NameCard from "@/components/NameCard"
+import Option from "@/components/Option"
 import OutPutSection from "@/components/OutPutSection"
 import Description from "@/components/Description"
 import "ress"
@@ -24,9 +26,10 @@ import "ress"
 export default {
   name: "App",
   components: {
-    NameCard,
     HeaderInner,
     InputSection,
+    NameCard,
+    Option,
     OutPutSection,
     Description
   }
