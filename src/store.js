@@ -35,7 +35,11 @@ export default new Vuex.Store({
   },
   actions: {
     updateTwitterID ({ commit }, message) {
-      // ajaxでphp呼んで、twitterIDを入力して、icon,nameを取得
+      // idを保存
+      // this.state.twitterID = message //←これでも動くが、原則非同期更新にすべき
+      commit('setTwitterID', message)
+
+      // ajaxでphp呼んで、twitterIDを入力して、icon,nameを取得し、storeに保存
       // const url = 'https://localhost/works/nafdas/api/getTwitterData.php'
       // const url = 'https://ce-ya.net/app/nafdas/api/getTwitterData.php'
       // console.log('env:', process.env)
@@ -61,9 +65,6 @@ export default new Vuex.Store({
         function () {
           console.log('finally')
         })
-
-      // this.state.twitterID = message //←これでも動くが、原則非同期更新にすべき
-      commit('setTwitterID', message)
     },
     updateIcon ({ commit }, message) {
       commit('setTwitterIcon', message)
