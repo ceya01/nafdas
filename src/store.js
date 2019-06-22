@@ -64,6 +64,7 @@ export default new Vuex.Store({
         function (response) {
           console.log(response)
           if (response.data.match(/error/)) {
+            alert('エラーが発生しました：' + response.data)
             return
           }
           // let resData = response.data.replace('\r\n', '')

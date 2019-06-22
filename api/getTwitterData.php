@@ -18,8 +18,8 @@ if(array_key_exists('Origin',$reqHeaders) && in_array($reqHeaders['Origin'], $al
 if(array_key_exists('sn',$_GET)){
   $screenName = $_GET['sn'];
 }else{
-	echo 'error: no screen name';
-  exit('Error: スクリーンネームが未設定です');
+	//echo 'error: no screen name';
+  exit('Error: スクリーンネームが設定されてません');
 }
 
 // twitter設定
@@ -131,16 +131,15 @@ $request_method = 'GET' ;
 	$json = substr( $res1, $res2['header_size'] ) ;		// 取得したデータ(JSONなど)
 	$header = substr( $res1, 0, $res2['header_size'] ) ;	// レスポンスヘッダー (検証に利用したい場合にどうぞ)
 
+	$obj = json_decode( $json );
   if(strpos($json,'error')){
-    echo $json;
-		exit('Error: IDが不正です');
+		exit('：'.$json);
   }
 
 	// [cURL]ではなく、[file_get_contents()]を使うには下記の通りです…
 	// $json = file_get_contents( $request_url , false , stream_context_create( $context ) ) ;
 
 	// JSONをオブジェクトに変換
-	$obj = json_decode( $json );
   
   $twName = $obj->name;
   $twIconUrl = $obj->profile_image_url;
