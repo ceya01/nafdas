@@ -58,8 +58,8 @@ export default new Vuex.Store({
       // const url = 'https://localhost/works/nafdas/api/getTwitterData.php'
       // const url = 'https://ce-ya.net/app/nafdas/api/getTwitterData.php'
       // console.log('env:', process.env)
-      const url = process.env.APIURL_GET_TWITTER_DATA
-
+      // const url = process.env.APIURL_GET_TWITTER_DATA
+      const url = 'https://ce-ya.net/app/nafdas/api/getTwitterData.php'
       axios.get(url + '?sn=' + message).then( // usid: user screen id
         function (response) {
           console.log(response)
@@ -69,7 +69,7 @@ export default new Vuex.Store({
           }
           // let resData = response.data.replace('\r\n', '')
           // 取得した文字列の先頭に改行が入ってるので削除して、配列に分割
-          let resAry = response.data.replace('\r\n', '').split(',')
+          let resAry = response.data.replace('\n', '').split(',')
           commit('setTwitterName', resAry[0])
           commit('setTwitterIcon', resAry[1])
           console.log(resAry)
