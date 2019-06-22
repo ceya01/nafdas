@@ -10,7 +10,7 @@
     OutPutSection
     Description
   footer.l-footer 
-    span.__text (C) ceya-net
+    span.__text nafdas ver 1.0 / © 2019- ceya-net.
     
 </template>
 
@@ -80,10 +80,13 @@ $bgDark: slategrey;
 }
 .l-footer {
   background-color: $bgDark;
-  color: #fff;
+  margin-top: 2em;
   padding: 1em 0;
   bottom: 0;
   width: 100%;
+  >.__text{
+    color: #fff;  
+  }
   @media print{
     display: none;
   }

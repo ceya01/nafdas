@@ -4,7 +4,7 @@
     div.__itemList
       div.c-item.__fontSize
         label.c-label.__labelFontSize(for="fontSize") 文字サイズ
-        input.c-input.__inputFontSize#fontSize(type="number" placeholder="文字サイズを指定" step="0.1" min="1" max="80" v-model="option.fontSize" @change="onChangeInput")
+        input.c-input.__inputFontSize#fontSize(type="number" placeholder="文字サイズを指定" step="0.1" min="1" max="40" v-model="option.fontSize" @change="onChangeInput")
       div.c-item.__numLine
         label.c-label.__labelNumLine(for="numLine") 行数
         input.c-input.__inputFontName#fontName(type="number" placeholder="行数" min="1" max="3" v-model="option.numLine")

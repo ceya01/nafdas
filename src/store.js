@@ -11,7 +11,7 @@ export default new Vuex.Store({
     twitterName: '',
     twitterIcon: '',
     option: {
-      fontSize: 6,
+      fontSize: 8,
       fontName: 'デフォルト',
       numLine: 1
     }
