@@ -1,7 +1,7 @@
 <template lang="pug">
   section.p-outputSection
     //-button.c-btn.p-btnNetPrint ネットプリント
-    button.c-btn.p-btnSave(@click="onClickPrint") 印刷！
+    button.c-btn.p-btnPrint(@click="onClickPrint") 印刷！
     .p-outPutImgWrap
 </template>
 
@@ -18,8 +18,8 @@ export default {
   },
   methods: {
     onClickPrint(evt) {
-      console.log("onclickSave:", evt)
-      
+      //console.log("onClickPrint:", evt)
+      window.print();
     },
     //旧機能　名札部分をHTML化　2019/06/22現在未使用
     createCanvas(){
@@ -53,6 +53,9 @@ export default {
 }
 .p-outPutImgWrap{
   margin:1em auto;
-
+}
+.p-btnPrint{
+  font-size: 1.1em;
+  padding: 0.8em 3em;
 }
 </style>
