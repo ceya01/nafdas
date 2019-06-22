@@ -1,7 +1,7 @@
 <template lang="pug">
   section.p-outputSection
     //-button.c-btn.p-btnNetPrint ネットプリント
-    button.c-btn.p-btnSave(@click="onClickSave") 画像を生成
+    button.c-btn.p-btnSave(@click="onClickPrint") 印刷！
     .p-outPutImgWrap
 </template>
 
@@ -17,10 +17,11 @@ export default {
     }
   },
   methods: {
-    onClickSave(evt) {
+    onClickPrint(evt) {
       console.log("onclickSave:", evt)
       
     },
+    //旧機能　名札部分をHTML化　2019/06/22現在未使用
     createCanvas(){
       console.log("createCanvas:")
       html2canvas(document.querySelector(".p-nameCard")).then(canvas =>{

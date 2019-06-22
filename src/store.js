@@ -39,10 +39,14 @@ export default new Vuex.Store({
     },
     setTwitterIcon (state, payload) {
       state.twitterIcon = payload
-      console.log('setTwitterIcon', payload)
+      // console.log('mutation:setTwitterIcon', payload)
     },
     setOption (state, payload) {
+      // console.log('setOption', state, payload)
+      // payload.fontSize = parseFloat(payload.fontSize)
       state.option = payload
+      // state.option.fontSize = parseFloat(state.option.fontSize)
+      // state.option.numLine = parseInt(state.option.numLine)
     }
   },
   actions: {

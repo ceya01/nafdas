@@ -4,8 +4,11 @@ section.p-nameCard
     img.__icon( src="@/assets/avatar_default_150sq.png" v-if="twitterIcon===''")
     img.__icon( :src="twitterIcon"  v-if="twitterIcon!==''")
     input.__inputImg(type="file" v-on:change="onSelectFile")
-  .__nameBox
-    textarea.__textareaName.c-inCardInput(type="text" placeholder="（ここに名前）" :value="twitterName") 
+  .__nameBox(:style="styleNameBox")
+    textarea.__textareaName.c-inCardInput(
+        type="text" placeholder="（ここに名前）" maxlength="50" 
+        v-model="twitterName" :style="styleName"
+      ) 
   .__idBox
     label.__labelID(for="twIDinCard") @ 
     input.__inputID.c-inCardInput#twIDinCard(type="text" placeholder="(twitter ID)" :value="twitterID") 
@@ -16,7 +19,9 @@ export default {
   name: 'NameCard',
     data () {
     return {
-      uploadedImage: '',
+      // styleName: {
+      //   fontSize: this.option.fontSize+'mm'
+      // }
     }
   },
   methods: {
@@ -42,12 +47,43 @@ export default {
     twitterID : function(){
       return this.$store.getters.twitterID
     },
-    twitterName : function(){
-      return this.$store.getters.twitterName
+    twitterName : {
+      get (){
+        return this.$store.getters.twitterName
+      },
+      set (value){
+        this.$store.commit('setTwitterName', value)
+      }
     },
     twitterIcon : function(){
       return this.$store.getters.twitterIcon
     },
+    option : function(){
+      return this.$store.getters.option
+    },
+    fontSize:function(){
+      return parseFloat(this.option.fontSize);
+    },
+    numLine:function(){
+      return parseInt(this.option.numLine);
+    },
+    styleName: function(){
+      
+      return { 
+        fontSize: this.fontSize+'mm',
+        fontFamily: "'"+this.option.fontName+"'",
+        height: this.nameTextareaHeight +'mm',
+        //lineHeight: (this.fontSize + (this.numLine-1)*2) +'mm'
+      }
+    },
+    styleNameBox:function(){
+      return { 
+        top: (55-this.nameTextareaHeight) /2 - 8 +'mm'
+      }
+    },
+    nameTextareaHeight:function(){
+      return (this.fontSize *this.numLine)+2*(this.numLine);
+    }
   }
 }
 
@@ -67,12 +103,12 @@ $cardHeight:55mm; // 180px;
 $iconWidth:24mm;  
 $iconHeight:$iconWidth; // 正方形なので heightも同じ値
 $iconX:4mm;
-$iconY:($cardHeight - $iconHeight) / 2;
+$iconY:($cardHeight - $iconHeight) / 2 - 4mm;
 
 $nameBoxWidth:57mm;
 $nameBoxHeight:24mm;
-$nameBoxX:31mm;
-$nameBoxY:($cardHeight - $nameBoxHeight) / 2;
+$nameBoxX:30mm;
+$nameBoxY:($cardHeight - $nameBoxHeight) / 2 - 4mm;
 
 $idBoxWidth:$cardWidth - 4mm;
 $idBoxHeight:10mm;
@@ -121,15 +157,18 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
     font-size:6mm;
     font-weight: bold;
     >.__textareaName{
-
+      color:#000;
       resize: none;
       overflow: hidden;
       position: relative;
+      font-weight:bold;
       width:100%;
       height:17mm;
-      line-height: 8mm;
       top:3.75mm;
-      letter-spacing: 0.5mm;
+      line-height: initial;
+      letter-spacing: 0.1em;
+      text-align: center;
+
     }
   }
   >.__idBox{

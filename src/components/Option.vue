@@ -4,10 +4,10 @@
     div.__itemList
       div.c-item.__fontSize
         label.c-label.__labelFontSize(for="fontSize") 文字サイズ
-        input.c-input.__inputFontSize#fontSize(type="number" placeholder="文字サイズを指定" v-model="option.fontSize" @change="onChangeInput")
+        input.c-input.__inputFontSize#fontSize(type="number" placeholder="文字サイズを指定" step="0.1" min="1" max="80" v-model="option.fontSize" @change="onChangeInput")
       div.c-item.__numLine
         label.c-label.__labelNumLine(for="numLine") 行数
-        input.c-input.__inputFontName#fontName(type="number" placeholder="行数" v-model="option.numLine")
+        input.c-input.__inputFontName#fontName(type="number" placeholder="行数" min="1" max="3" v-model="option.numLine")
       div.c-item.__fontName
         label.c-label.__labelFontName(for="fontName") フォント
         input.c-input.__inputFontName#fontName(type="text" placeholder="フォント名を指定" v-model="option.fontName")
@@ -16,14 +16,6 @@
 <script>
 export default {
   name: 'Option',
-  data: function () {
-    //一時保存用　storeから読み込んで同期
-    return {
-      vmFontSize: 6,
-      vmFontname: 'デフォルト',
-      vmNumLine: 1
-    }
-  },
   computed:{
     option :{
       get (){
@@ -36,7 +28,7 @@ export default {
   },
   methods:{
     onChangeInput: function(evt){
-      console.log('onChangeInput',evt.target.value,this.$store.getters.option.fontSize,this.vmFontSize);
+      //console.log('onChangeInput',evt.target.value,this.$store.getters.option.fontSize,this.vmFontSize);
 
     }
   }
