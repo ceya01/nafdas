@@ -113,7 +113,7 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
     left:$nameBoxX;
     top:$nameBoxY;
 
-    font-size:6.5mm;
+    font-size:6mm;
     font-weight: bold;
     >.__textareaName{
 
