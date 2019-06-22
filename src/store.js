@@ -30,6 +30,7 @@ export default new Vuex.Store({
       state.twitterName = payload
     },
     setTwitterIcon (state, payload) {
+      console.log('setTwitterIcon' + payload)
       state.twitterIcon = payload
     }
   },
@@ -66,7 +67,7 @@ export default new Vuex.Store({
           console.log('finally')
         })
     },
-    updateIcon ({ commit }, message) {
+    updateTwitterIcon ({ commit }, message) {
       commit('setTwitterIcon', message)
     }
   }

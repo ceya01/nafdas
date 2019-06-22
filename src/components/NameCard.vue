@@ -23,16 +23,17 @@ export default {
     onSelectFile(e){
       console.log("onSelectFile:",e);
       let files = e.target.files || e.dataTransfer.files;
-      this.showImg(files[0]);
+      this.setIcon(files[0]);
     },
-    showImg(file){
-      console.log("showImg:",file);
+    setIcon(file){
+      console.log("setIcon:",file);
       let render = new FileReader();
       render.onload= (e)=>{
+      console.log("setIcon> render.onload:",e);
         // this.uploadedImage = e.target.result;
         this.$store.dispatch('updateTwitterIcon',e.target.result)
       };
-      //render.readAsDataURL(file);
+      render.readAsDataURL(file);
     }
   },
   computed:{
@@ -86,23 +87,25 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
   position: relative;
   
   >.__iconBox{
+    border-radius:50%;
     position: absolute;
     width:$iconWidth;
     height:$iconHeight;
     left:$iconX;
     top:$iconY;
-    
+    overflow: hidden;
     >.__icon,>.__inputImg{
       position: absolute;
       top:0;
       left:0;
       width: 100%;
-      height: 100%;
+      height: auto;
+      //height: 100%;
     }
     >.__icon{
-      border-radius:50%;
     }
     >.__inputImg{
+      height: 100%;
       opacity: 0;
     }
   }
