@@ -3,7 +3,7 @@
     label(for="twID") TwitterID：
     input.__inputText#twID(type="text" placeholder="TwitterIDを入力" v-model="twitterID" 
     @change ="onChangeInput")
-    button.__btnLoad.c-btn(@click="onClickLoad") 読込
+    button.__btnLoad.c-btn(@click="onClickLoad" :disabled="isButtonDisabled") 読込
     //-p twID: {{twitterID}}
 </template>
 
@@ -18,15 +18,18 @@ export default {
       set (value){
         this.$store.commit('setTwitterID', value)
       }
+    },
+    isButtonDisabled: function(){
+       return !this.twitterID || !this.twitterID.match(/^[A-Za-z0-9_]*$/)
     }
   },methods:{
     onChangeInput: function(evt){
-      console.log('onChangeInput');
+      //console.log('onChangeInput');
       // let twitterID = evt.target.value;
       // this.$store.dispatch('updateTwitterID',twitterID)
     },
     onClickLoad: function(evt){
-      console.log('onClickLoad');
+      //console.log('onClickLoad');
       let twitterID = this.twitterID;
       this.$store.dispatch('updateTwitterID',twitterID)
     }

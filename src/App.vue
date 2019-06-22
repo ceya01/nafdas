@@ -66,6 +66,7 @@ $bgDark: slategrey;
   color: #fff;
   padding: 1.5em 0;
   width: 100%;
+  box-shadow:0 2px 5px rgba(0,0,0,0.26);
   @media print{
     display: none;
   }
