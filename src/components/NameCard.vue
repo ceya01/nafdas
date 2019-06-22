@@ -6,7 +6,7 @@ section.p-nameCard
     input.__inputImg(type="file" v-on:change="onSelectFile")
   .__nameBox(:style="styleNameBox")
     textarea.__textareaName.c-inCardInput(
-        type="text" placeholder="（ここに名前）" maxlength="50" 
+        type="text" placeholder="（名前）" maxlength="50" 
         v-model="twitterName" :style="styleName"
       ) 
   .__idBox
@@ -68,18 +68,26 @@ export default {
       return parseInt(this.option.numLine);
     },
     styleName: function(){
-      
       return { 
         fontSize: this.fontSize+'mm',
         fontFamily: "'"+this.option.fontName+"'",
-        height: this.nameTextareaHeight +'mm',
-        //lineHeight: (this.fontSize + (this.numLine-1)*2) +'mm'
+       // height: this.nameTextareaHeight +'mm',
+        lineHeight: this.fontSize +2+'mm'
       }
     },
     styleNameBox:function(){
+      let _top = (55-this.nameTextareaHeight) /2 - 2;
+      _top = _top > 0 ? _top : 0;
       return { 
-        top: (55-this.nameTextareaHeight) /2 - 8 +'mm'
+        top: _top +'mm',
+        height: this.nameTextareaHeight +'mm',
       }
+      // let _top =  (55-this.nameTextareaHeight) /2;
+      // _top = _top > 0 ? _top : 0;
+      // return { 
+      //   top: _top +'mm',
+      //   height: this.nameTextareaHeight +'mm'
+      // }
     },
     nameTextareaHeight:function(){
       return (this.fontSize *this.numLine)+2*(this.numLine);
@@ -153,7 +161,9 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
     height:$nameBoxHeight;
     left:$nameBoxX;
     top:$nameBoxY;
-
+    overflow: hidden;
+    height:8mm;
+    max-height: $cardHeight - 2mm;
     font-size:6mm;
     font-weight: bold;
     >.__textareaName{
@@ -163,12 +173,12 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
       position: relative;
       font-weight:bold;
       width:100%;
-      height:17mm;
-      top:3.75mm;
+      height: 100%;
+      //top:3.75mm;
       line-height: initial;
       letter-spacing: 0.1em;
       text-align: center;
-
+      vertical-align: top;
     }
   }
   >.__idBox{
