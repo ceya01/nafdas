@@ -1,19 +1,11 @@
 
 <?php
-//CORS対策　開発環境のlocalhost:8080 と 本番環境のドメインを許可
-$reqHeaders = apache_request_headers();
-$allowedOrigin = array(
-  'https://ce-ya.net'
- ,'http://localhost:8080'
-);
-// ajaxなどで外部から呼び出した場合、$reqHeaders['Origin']に呼び出し元のドメインが入る
-if(array_key_exists('Origin',$reqHeaders) && in_array($reqHeaders['Origin'], $allowedOrigin)){
-  header("Access-Control-Allow-Origin: {$reqHeaders['Origin']}");
-}
 
-//var_dump($reqHeaders);
-// echo 'getTwitterData.php';
-// var_dump($_GET);
+if($_SERVER['HTTP_HOST'] ==='localhost'){
+	header("Access-Control-Allow-Origin: http://localhost:8080");
+}else if($_SERVER['HTTP_HOST'] ==='ce-ya.net'){
+	header("Access-Control-Allow-Origin: https://ce-ya.net");
+}
 
 if(array_key_exists('sn',$_GET)){
   $screenName = $_GET['sn'];
