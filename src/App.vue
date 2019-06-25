@@ -10,7 +10,7 @@
     OutPutSection
     Description
   footer.l-footer 
-    span.__text nafdas ver 1.0 / © 2019- <a href="https://ce-ya/net" target="_blank">ceya-net</a>
+    span.__text nafdas ver 1.0 / © 2019- <a href="https://ce-ya.net" target="_blank">ceya-net</a>
     
 </template>
 
