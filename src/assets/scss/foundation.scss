@@ -5,6 +5,8 @@
   color:#444;
   letter-spacing: 0.1em;
   line-height: 1.5em;
+  
+  -webkit-print-color-adjust: exact; //chrome only
 }
 
 body{

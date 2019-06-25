@@ -2,7 +2,7 @@
 section.p-nameCard
   .__bg
     svg
-      rect
+      rect(width="100%" height="100%")
   .__iconBox
     img.__icon( src="@/assets/avatar_default_150sq.png" v-if="twitterIcon===''")
     img.__icon( :src="twitterIcon"  v-if="twitterIcon!==''")
@@ -129,6 +129,9 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
     width: 100%;
     height: 100%;
     z-index: 20;
+    svg{
+      display: none;
+    }
   }
   >.__iconBox{
     border-radius:50%;
@@ -205,10 +208,11 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
   }
   &.--dark{
     .__bg{
-      //background: #333!important;
+      background: #333!important;
       svg{
         width:100%;
         height: 100%;
+        display: block;
         rect{
           width:100%;
           height: 100%;
@@ -223,9 +227,9 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
       }
     }
     .__labelID, .__inputID{
-      color:#0f0;
+      color:#3c3;
       &::placeholder{
-        color:#393;
+        color:#484;
       }
     }
   }
