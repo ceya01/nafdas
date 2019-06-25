@@ -131,18 +131,21 @@ $request_method = 'GET' ;
 	$json = substr( $res1, $res2['header_size'] ) ;		// 取得したデータ(JSONなど)
 	$header = substr( $res1, 0, $res2['header_size'] ) ;	// レスポンスヘッダー (検証に利用したい場合にどうぞ)
 
-	$obj = json_decode( $json );
-  if(strpos($json,'error')){
-		exit('：'.$json);
-  }
+	exit($json); 
+	//取得したjsonをそのまま出力して終了
+
+	// $obj = json_decode( $json );
+  // if(strpos($json,'error')){
+	// 	exit($json);
+  // }
 
 	// [cURL]ではなく、[file_get_contents()]を使うには下記の通りです…
 	// $json = file_get_contents( $request_url , false , stream_context_create( $context ) ) ;
 
 	// JSONをオブジェクトに変換
   
-  $twName = $obj->name;
-  $twIconUrl = $obj->profile_image_url;
-  $twIconUrl = str_replace('_normal.','.',$twIconUrl);
+  // $twName = $obj->name;
+  // $twIconUrl = $obj->profile_image_url;
+  // $twIconUrl = str_replace('_normal.','.',$twIconUrl);
 
-	echo $twName . ','. $twIconUrl;
+	// echo $twName . ','. $twIconUrl;

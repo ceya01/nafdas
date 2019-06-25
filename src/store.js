@@ -58,21 +58,25 @@ export default new Vuex.Store({
       // const url = 'https://localhost/works/nafdas/api/getTwitterData.php'
       // const url = 'https://ce-ya.net/app/nafdas/api/getTwitterData.php'
       // console.log('env:', process.env)
-      // const url = process.env.APIURL_GET_TWITTER_DATA
-      const url = 'https://ce-ya.net/app/nafdas/api/getTwitterData.php'
+      const url = process.env.APIURL_GET_TWITTER_DATA
+      // const url = 'https://ce-ya.net/app/nafdas/api/getTwitterData.php'
       axios.get(url + '?sn=' + message).then( // usid: user screen id
         function (response) {
           console.log(response)
-          if (response.data.match(/error/)) {
-            alert('エラーが発生しました：' + response.data)
+          if ('errors' in response.data) {
+            // alert('エラーが発生しました：' + response.data.toString())
+            alert('エラーが発生しました：' + JSON.stringify(response.data))
             return
           }
           // let resData = response.data.replace('\r\n', '')
           // 取得した文字列の先頭に改行が入ってるので削除して、配列に分割
-          let resAry = response.data.replace('\n', '').split(',')
-          commit('setTwitterName', resAry[0])
-          commit('setTwitterIcon', resAry[1])
-          console.log(resAry)
+          // let resAry = response.data.replace('\n', '').split(',')
+          let name = response.data.name
+          let imageURL = response.data.profile_image_url_https
+          imageURL = imageURL.replace(/_normal./, '.')
+          commit('setTwitterName', name)
+          commit('setTwitterIcon', imageURL)
+          // console.log(resAry)
         }).catch(
         function (error) {
           // handle error
