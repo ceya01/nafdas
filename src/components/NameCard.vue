@@ -1,5 +1,6 @@
 <template lang="pug">
-section.p-nameCard
+section.p-nameCard.--dark
+  .__bg
   .__iconBox
     img.__icon( src="@/assets/avatar_default_150sq.png" v-if="twitterIcon===''")
     img.__icon( :src="twitterIcon"  v-if="twitterIcon!==''")
@@ -131,7 +132,17 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
   border: #aaa dashed 1px;
   margin: 1em auto;
   position: relative;
+  z-index: 10;
   
+  .c-inCardInput{
+    width:100%;
+  }
+  >.__bg{
+    background: #FFF;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+  }
   >.__iconBox{
     border-radius:50%;
     position: absolute;
@@ -140,6 +151,7 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
     left:$iconX;
     top:$iconY;
     overflow: hidden;
+    z-index: 50;
     >.__icon,>.__inputImg{
       position: absolute;
       top:0;
@@ -166,6 +178,7 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
     max-height: $cardHeight - 2mm;
     font-size:6mm;
     font-weight: bold;
+    z-index: 40;
     >.__textareaName{
       color:#000;
       resize: none;
@@ -182,13 +195,14 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
     }
   }
   >.__idBox{
-    $width:280px;
+    $width:$cardWidth;
     $height:30px;
-    width:$width;
+    width:$width - $iconX * 2;
     height:$height;
     position: absolute;
-    bottom:10px;
-    left:10px;
+    bottom:4mm;
+    left:$iconX;
+    z-index: 30;
 
     $wLabel:20px;
     >*{
@@ -199,11 +213,25 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
       width:$wLabel;
     }
     >.__inputID{
-      width:calc(100% - #{$wLabel};)
+      width:calc(100% - #{$wLabel});
     }
   }
-  .c-inCardInput{
-    width:100%;
+  &.--dark{
+    .__bg{
+      background: #333!important;
+    }
+    .__textareaName{
+      color:#fff;
+      &::placeholder{
+        color:#ccc;
+      }
+    }
+    .__labelID, .__inputID{
+      color:#0f0;
+      &::placeholder{
+        color:#393;
+      }
+    }
   }
 }
 </style>
