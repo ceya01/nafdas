@@ -21,35 +21,22 @@ export default {
   name: 'NameCard',
     data () {
     return {
-      // styleName: {
-      //   fontSize: this.option.fontSize+'mm'
-      // }
     }
   },
   methods: {
     onSelectFile(e){
-      console.log("onSelectFile:",e);
       let files = e.target.files || e.dataTransfer.files;
       this.setIcon(files[0]);
     },
     setIcon(file){
-      console.log("setIcon:",file);
       let render = new FileReader();
       render.onload= (e)=>{
-      console.log("setIcon> render.onload:",e);
-        // this.uploadedImage = e.target.result;
         this.$store.dispatch('updateTwitterIcon',e.target.result)
-        // this.$store.commit('setTwitterIcon',e.target.result) //これでも代用可能
-        // console.log("after diapatch/commit",d,c);
       };
       render.readAsDataURL(file);
     }
   },
   computed:{
-    // twitterID : function(){
-    //   return this.$store.getters.twitterID !== '' ?
-    //    '@'+this.$store.getters.twitterID : ''
-    // },
     twitterID : {
       get (){
         return this.$store.getters.twitterID
@@ -99,7 +86,6 @@ export default {
     }
   }
 }
-console.log("namecard");
 
 </script>
 
