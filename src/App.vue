@@ -5,7 +5,7 @@
     HeaderInner
   main.l-main
     InputSection
-    NameCard
+    NameCardSection
     Option
     OutPutSection
     Description
@@ -18,6 +18,7 @@
 import HeaderInner from "@/components/HeaderInner"
 import InputSection from "@/components/InputSection"
 import NameCard from "@/components/NameCard"
+import NameCardSection from "@/components/NameCardSection"
 import Option from "@/components/Option"
 import OutPutSection from "@/components/OutPutSection"
 import Description from "@/components/Description"
@@ -29,6 +30,7 @@ export default {
     HeaderInner,
     InputSection,
     NameCard,
+    NameCardSection,
     Option,
     OutPutSection,
     Description

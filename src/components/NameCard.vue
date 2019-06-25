@@ -1,6 +1,8 @@
 <template lang="pug">
-section.p-nameCard.--dark
+section.p-nameCard
   .__bg
+    svg
+      rect
   .__iconBox
     img.__icon( src="@/assets/avatar_default_150sq.png" v-if="twitterIcon===''")
     img.__icon( :src="twitterIcon"  v-if="twitterIcon!==''")
@@ -86,7 +88,6 @@ export default {
     }
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -204,7 +205,16 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
   }
   &.--dark{
     .__bg{
-      background: #333!important;
+      //background: #333!important;
+      svg{
+        width:100%;
+        height: 100%;
+        rect{
+          width:100%;
+          height: 100%;
+          fill: #333
+        }
+      }
     }
     .__textareaName{
       color:#fff;
