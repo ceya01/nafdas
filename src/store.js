@@ -39,27 +39,17 @@ export default new Vuex.Store({
     },
     setTwitterIcon (state, payload) {
       state.twitterIcon = payload
-      // console.log('mutation:setTwitterIcon', payload)
     },
     setOption (state, payload) {
-      // console.log('setOption', state, payload)
-      // payload.fontSize = parseFloat(payload.fontSize)
       state.option = payload
-      // state.option.fontSize = parseFloat(state.option.fontSize)
-      // state.option.numLine = parseInt(state.option.numLine)
     }
   },
   actions: {
     updateTwitterID ({ commit }, message) {
       // idを保存
       commit('setTwitterID', message)
-
       // ajaxでphp呼んで、twitterIDを入力して、icon,nameを取得し、storeに保存
-      // const url = 'https://localhost/works/nafdas/api/getTwitterData.php'
-      // const url = 'https://ce-ya.net/app/nafdas/api/getTwitterData.php'
-      // console.log('env:', process.env)
       const url = process.env.APIURL_GET_TWITTER_DATA
-      // const url = 'https://ce-ya.net/app/nafdas/api/getTwitterData.php'
       axios.get(url + '?sn=' + message).then( // usid: user screen id
         function (response) {
           console.log(response)
@@ -68,9 +58,6 @@ export default new Vuex.Store({
             alert('エラーが発生しました：' + JSON.stringify(response.data))
             return
           }
-          // let resData = response.data.replace('\r\n', '')
-          // 取得した文字列の先頭に改行が入ってるので削除して、配列に分割
-          // let resAry = response.data.replace('\n', '').split(',')
           let name = response.data.name
           let imageURL = response.data.profile_image_url_https
           imageURL = imageURL.replace(/_normal./, '.')

@@ -12,10 +12,11 @@ section.p-nameCard.--dark
       ) 
   .__idBox
     label.__labelID(for="twIDinCard") @ 
-    input.__inputID.c-inCardInput#twIDinCard(type="text" placeholder="(twitter ID)" :value="twitterID") 
+    input.__inputID.c-inCardInput#twIDinCard(type="text" placeholder="(twitter ID)" v-model="twitterID") 
 </template>
 
 <script>
+let isEdited =false;
 export default {
   name: 'NameCard',
     data () {
@@ -45,8 +46,17 @@ export default {
     }
   },
   computed:{
-    twitterID : function(){
-      return this.$store.getters.twitterID
+    // twitterID : function(){
+    //   return this.$store.getters.twitterID !== '' ?
+    //    '@'+this.$store.getters.twitterID : ''
+    // },
+    twitterID : {
+      get (){
+        return this.$store.getters.twitterID
+      },
+      set (value){
+        this.$store.commit('setTwitterID', value)
+      }
     },
     twitterName : {
       get (){
@@ -77,29 +87,19 @@ export default {
       }
     },
     styleNameBox:function(){
-      let _top = (55-this.nameTextareaHeight) /2 - 2;
+      let _top = (55-this.nameTextareaHeight) /2 - 2.5;
       _top = _top > 0 ? _top : 0;
       return { 
         top: _top +'mm',
         height: this.nameTextareaHeight +'mm',
       }
-      // let _top =  (55-this.nameTextareaHeight) /2;
-      // _top = _top > 0 ? _top : 0;
-      // return { 
-      //   top: _top +'mm',
-      //   height: this.nameTextareaHeight +'mm'
-      // }
     },
     nameTextareaHeight:function(){
       return (this.fontSize *this.numLine)+2*(this.numLine);
     }
   }
 }
-
-
-
 console.log("namecard");
-
 
 </script>
 
@@ -114,7 +114,7 @@ $iconHeight:$iconWidth; // 正方形なので heightも同じ値
 $iconX:4mm;
 $iconY:($cardHeight - $iconHeight) / 2 - 4mm;
 
-$nameBoxWidth:57mm;
+$nameBoxWidth:58mm;
 $nameBoxHeight:24mm;
 $nameBoxX:30mm;
 $nameBoxY:($cardHeight - $nameBoxHeight) / 2 - 4mm;
