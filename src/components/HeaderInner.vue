@@ -1,7 +1,7 @@
 <template lang="pug">
 .l-header__inner
   h1.p-headTitle なふだす！
-  span.p-subTitle オフ会用の名札を簡単に作成・印刷するツール
+  span.p-subTitle TwitterIDを入力して、一瞬で名札を生成して印刷するツール
 </template>
 
 <script>
