@@ -227,9 +227,9 @@ $idBoxY:$cardHeight - $idBoxHeight - 4mm;
       }
     }
     .__labelID, .__inputID{
-      color:#3c3;
+      color:#ccc;
       &::placeholder{
-        color:#484;
+        color:#999;
       }
     }
   }
