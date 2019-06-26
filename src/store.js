@@ -41,7 +41,13 @@ export default new Vuex.Store({
       state.twitterIcon = payload
     },
     setOption (state, payload) {
-      console.log('setOption', payload)
+      // console.log('setOption1', payload)
+      // payload.fontSize = payload.fontSize > 4 ? payload.fontSize : 4
+      // payload.fontSize = payload.fontSize < 40 ? payload.fontSize : 40
+      // payload.numLine = payload.numLine > 1 ? payload.numLine : 1
+      // payload.numLine = payload.numLine < 3 ? payload.numLine : 3
+
+      // console.log('setOption2', payload)
       state.option = payload
     }
   },
