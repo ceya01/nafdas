@@ -7,10 +7,13 @@
         input.c-input.__inputFontSize#fontSize(type="number" placeholder="文字サイズを指定" step="0.1" min="1" max="40" v-model="fontSize" @change="onChangeFontSize")
       div.c-item.__numLine
         label.c-label.__labelNumLine(for="numLine") 行数
-        input.c-input.__inputFontName#fontName(type="number" placeholder="行数" min="1" max="3" v-model="numLine"  @change="onChangeNumLine")
+        input.c-input.__inputFontName#numLine(type="number" placeholder="行数" min="1" max="3" v-model="numLine"  @change="onChangeNumLine")
       div.c-item.__fontName
         label.c-label.__labelFontName(for="fontName") フォント
         input.c-input.__inputFontName#fontName(type="text" placeholder="フォント名を指定" v-model="option.fontName")
+      div.c-item.__checkBoxList
+        input#isAddDarkTheme(type="checkbox" v-model="option.isAddDarkTheme")
+        label.c-label.__labelIsAddDarkTheme(for="isAddDarkTheme") ダークテーマ名札を印刷する（Chromeのみ対応）
 </template>
 
 <script>
@@ -31,9 +34,7 @@ export default {
       },
       set(value) {
         if (value < 4 || value > 40) return
-        let newOption = this.option;
-        newOption.fontSize = value;
-        this.option = newOption;
+        this.setOptionProperty('fontSize',value)
       }
     },
     numLine: {
@@ -42,9 +43,7 @@ export default {
       },
       set(value) {
         if (value < 1 || value > 3) return
-        let newOption = this.option;
-        newOption.numLine = value;
-        this.option = newOption;
+        this.setOptionProperty('numLine',value)
       }
     }
   },
@@ -63,6 +62,11 @@ export default {
       newNumLine = newNumLine > 1 ? newNumLine : 1
       newNumLine = newNumLine < 3 ? newNumLine : 3
       this.numLine = newNumLine
+    },
+    setOptionProperty(key,value){
+      let newOption = this.option;
+      newOption[key] = value;
+      this.option = newOption;
     }
   }
 };
@@ -104,6 +108,12 @@ export default {
     }
     > .__fontName {
       flex: 0 0 100%;
+    }
+    > .__checkBoxList{
+      > .c-label{
+        display: inline;
+        margin-left:0.5em ;
+      }
     }
   }
   @media print {
