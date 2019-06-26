@@ -53,6 +53,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: center;
+  padding-bottom: 5px;
   .__share-button{
     border-radius: 4px;
     background: #333333;
@@ -61,6 +62,14 @@ export default {
     text-decoration: none;
     padding: 0.5em 0 ;
     width:16%;
+    transition: 0.25s;
+    box-shadow:0 2px 5px rgba(0,0,0,0.26);  //google
+    &:hover{
+      cursor: pointer;
+      transition: 0.25s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+      transform: translateY(1px);
+    }
     .__social-icon{
 
     }
