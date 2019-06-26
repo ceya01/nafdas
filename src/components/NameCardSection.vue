@@ -27,5 +27,6 @@ export default {
 <style lang="scss" scoped>
 .p-nameCardSection{
   display: flex;
+  flex-wrap: wrap;
 }
 </style>

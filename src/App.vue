@@ -9,6 +9,7 @@
     Option
     OutPutSection
     Description
+    ShareSection
   footer.l-footer 
     span.__text なふだす | © 2019- <a href="https://ce-ya.net" target="_blank">ceya-net</a>
     
@@ -22,6 +23,7 @@ import NameCardSection from "@/components/NameCardSection"
 import Option from "@/components/Option"
 import OutPutSection from "@/components/OutPutSection"
 import Description from "@/components/Description"
+import ShareSection from "@/components/ShareSection"
 import "ress"
 
 export default {
@@ -33,7 +35,8 @@ export default {
     NameCardSection,
     Option,
     OutPutSection,
-    Description
+    Description,
+    ShareSection
   }
 }
  

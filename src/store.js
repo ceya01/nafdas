@@ -61,7 +61,7 @@ export default new Vuex.Store({
       console.log(this.getters.option)
       let newOption = this.getters.option
 
-      axios.get(url + '?sn=' + message).then( // usid: user screen id
+      axios.get(url + '?sn=' + message).then( // sn: screen name
         function (response) {
           console.log(response)
           if ('errors' in response.data) {

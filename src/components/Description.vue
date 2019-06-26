@@ -39,12 +39,15 @@ export default {
 
 .p-description {
   text-align: left;
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+  color: #444;
   @media print{
     display: none;
   }
 }
 h2 {
-  margin-bottom: 0.5em;
+  margin: 2em 0 1em 0;
 }
 p,
 ul,ol {
