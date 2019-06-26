@@ -14,7 +14,7 @@ export default new Vuex.Store({
       fontSize: 8,
       fontName: 'デフォルト',
       numLine: 1,
-      isAddDarkTheme: false
+      isAddDarkTheme: true
     }
   },
   getters: {

@@ -1,7 +1,7 @@
 <template lang="pug">
   section.p-nameCardSection
     NameCard
-    NameCard.--dark
+    NameCard.--dark(v-if="option.isAddDarkTheme")
 </template>
 
 <script>
@@ -12,13 +12,8 @@ export default {
     NameCard
   },
   computed:{
-    option :{
-      get (){
-        return this.$store.getters.option
-      },
-      set (value){
-        this.$store.commit('setOption', value)
-      }
+    option : function(){
+      return this.$store.getters.option
     }
   },
   methods:{
