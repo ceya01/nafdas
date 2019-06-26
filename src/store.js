@@ -41,6 +41,7 @@ export default new Vuex.Store({
       state.twitterIcon = payload
     },
     setOption (state, payload) {
+      console.log('setOption', payload)
       state.option = payload
     }
   },
@@ -50,27 +51,48 @@ export default new Vuex.Store({
       commit('setTwitterID', message)
       // ajaxでphp呼んで、twitterIDを入力して、icon,nameを取得し、storeに保存
       const url = process.env.APIURL_GET_TWITTER_DATA
+      console.log(this.getters.option)
+      let newOption = this.getters.option
+
       axios.get(url + '?sn=' + message).then( // usid: user screen id
         function (response) {
           console.log(response)
           if ('errors' in response.data) {
-            // alert('エラーが発生しました：' + response.data.toString())
             alert('エラーが発生しました：' + JSON.stringify(response.data))
             return
           }
+
           let name = response.data.name
           let imageURL = response.data.profile_image_url_https
           imageURL = imageURL.replace(/_normal./, '.')
           commit('setTwitterName', name)
           commit('setTwitterIcon', imageURL)
-          // console.log(resAry)
+
+          // 名前文字数に合わせてフォントサイズを変更
+          let numBytes = getStrBytes(name) // 暫定的に２バイト文字対応
+          // let numBytes = name.length * 2
+
+          console.log({numBytes})
+          if (numBytes <= 4) {
+            newOption.fontSize = 24
+            newOption.numLine = 1
+          } else if (numBytes <= 12) {
+            newOption.fontSize = Math.ceil(96 / numBytes)
+            newOption.numLine = 1
+          } else {
+            newOption.fontSize = 8
+            newOption.numLine = 2
+          }
+          // console.log(this.getters.option)
+          // console.log({newOption})
+          commit('setOption', newOption)
         }).catch(
         function (error) {
           // handle error
-          console.log(error)
+          alert('エラーが発生しました：' + error)
         }).finally(
         function () {
-          console.log('finally')
+          // console.log('finally')
         })
     },
     updateTwitterIcon ({ commit }, message) {
@@ -81,3 +103,23 @@ export default new Vuex.Store({
     }
   }
 })
+
+// 半角を1文字、全角を2文字として長さを計算
+function getStrBytes (str) {
+  var result = 0
+  for (var i = 0; i < str.length; i++) {
+    var chr = str.charCodeAt(i)
+    if ((chr >= 0x00 && chr < 0x81) ||
+       (chr === 0xf8f0) ||
+       (chr >= 0xff61 && chr < 0xffa0) ||
+       (chr >= 0xf8f1 && chr < 0xf8f4)) {
+      // 半角文字の場合は1.5 を加算
+      result += 1.5
+    } else {
+      // それ以外の文字の場合は2を加算
+      result += 2
+    }
+  }
+  // 結果を返す
+  return result
+}
