@@ -13,7 +13,7 @@
         input.c-input.__inputFontName#fontName(type="text" placeholder="フォント名を指定" v-model="option.fontName")
       div.c-item.__checkBoxList
         input#isAddDarkTheme(type="checkbox" v-model="option.isAddDarkTheme")
-        label.c-label.__labelIsAddDarkTheme(for="isAddDarkTheme") ダークテーマ名札を印刷する（Chromeのみ対応）
+        label.c-label.__labelIsAddDarkTheme(for="isAddDarkTheme") ダークテーマ名札も印刷する（Chromeのみ対応）
 </template>
 
 <script>
