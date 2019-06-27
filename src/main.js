@@ -3,14 +3,24 @@
 import Vue from 'vue'
 import App from './App'
 import store from './store'
+
+// Font Awesome のメインファイルを import
+
+import '@fortawesome/fontawesome-free-webfonts/css/fontawesome.css'
+// 使用するカテゴリーのファイルを import
+// import '@fortawesome/fontawesome-free-webfonts/css/fa-brands.css'
+// import '@fortawesome/fontawesome-free-webfonts/css/fa-regular.css'
+import '@fortawesome/fontawesome-free-webfonts/css/fa-solid.css'
+
+// icomoonのフォントアイコンをimport
+// from: https://nelog.jp/web-service-icon-fonts
+import '@/assets/icomoon/style.css'
+
 // import router from './router'
-
-Vue.config.productionTip = false
-
 /* グローバルcss */
-require('@/assets/scss/mixin.scss')
-require('@/assets/scss/foundation.scss')
-require('@/assets/scss/components.scss')
+import '@/assets/scss/mixin.scss'
+import '@/assets/scss/foundation.scss'
+import '@/assets/scss/components.scss'
 
 /* eslint-disable no-new */
 new Vue({

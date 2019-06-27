@@ -58,12 +58,12 @@ export default new Vuex.Store({
       commit('setTwitterID', message)
       // ajaxでphp呼んで、twitterIDを入力して、icon,nameを取得し、storeに保存
       const url = process.env.APIURL_GET_TWITTER_DATA
-      console.log(this.getters.option)
+      // console.log(this.getters.option)
       let newOption = this.getters.option
 
       axios.get(url + '?sn=' + message).then( // sn: screen name
         function (response) {
-          console.log(response)
+          // console.log(response)
           if ('errors' in response.data) {
             alert('エラーが発生しました：' + JSON.stringify(response.data))
             return
@@ -79,7 +79,7 @@ export default new Vuex.Store({
           let numBytes = getStrBytes(name) // 暫定的に２バイト文字対応
           // let numBytes = name.length * 2
 
-          console.log({numBytes})
+          // console.log({numBytes})
           if (numBytes <= 4) {
             newOption.fontSize = 24
             newOption.numLine = 1

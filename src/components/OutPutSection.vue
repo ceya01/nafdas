@@ -23,7 +23,7 @@ export default {
     },
     //旧機能　名札部分をHTML化　2019/06/22現在未使用
     createCanvas(){
-      console.log("createCanvas:")
+      // console.log("createCanvas:")
       html2canvas(document.querySelector(".p-nameCard")).then(canvas =>{
         //console.log(canvas);
         let doc = document.querySelector(".p-outPutImgWrap")
