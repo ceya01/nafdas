@@ -17,13 +17,21 @@
       li iOS,Androidでは印刷ボタンが機能しません。PCでご利用ください。
     h2.__changeLog 更新履歴
     ul
-      li 2019/06/22 <br> ver 1.0 <br>　ダークモード印刷機能<br>　文字サイズの自動調整
+      li 2019/06/22 <br> ver 1.1 <br>　ダークモード印刷機能<br>　文字サイズの自動調整
       li 2019/06/22 <br> ver 1.0 <br>　基本機能のみ
       li 2019/06/15 <br> ver 0.1 <br>　プロトタイプ版公開
     h2.__contact 連絡先
-    p Twitter 
+    p 感想・要望・不具合報告等ありましたら、Twitter 
       a(href="https://twitter.com/ceya_net") @ceya_net
       |  へお願いします。
+    h2.__contact リンク
+      ul
+        li 
+          a(href="https://twitter.com/ceya_net") 制作後記
+        li 
+          a(href="https://twitter.com/ceya_net") github（ソースコード）
+        li 
+          a(href="https://twitter.com/ceya_net") トップページ
 </template>
 
 <script>
