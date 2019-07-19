@@ -29,11 +29,11 @@
     h2.__contact リンク
     ul
       li 
-        a(href="https://twitter.com/ceya_net") 制作後記
+        a(href="https://ce-ya.net/nafdas-postscript") 制作後記
       li 
-        a(href="https://twitter.com/ceya_net") github（ソースコード）
+        a(href="https://github.com/ceya01/nafdas") github（ソースコード）
       li 
-        a(href="https://twitter.com/ceya_net") トップページ
+        a(href="https://ce-ya.net/") トップページ
 </template>
 
 <script>
