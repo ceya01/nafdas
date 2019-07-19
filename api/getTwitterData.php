@@ -1,6 +1,7 @@
 
 <?php
 
+// localhost と ce-ya.net で 同じドメインからのアクセスのみ許可
 if($_SERVER['HTTP_HOST'] ==='localhost'){
 	header("Access-Control-Allow-Origin: http://localhost:8080");
 }else if($_SERVER['HTTP_HOST'] ==='ce-ya.net'){
@@ -10,7 +11,6 @@ if($_SERVER['HTTP_HOST'] ==='localhost'){
 if(array_key_exists('sn',$_GET)){
   $screenName = $_GET['sn'];
 }else{
-	//echo 'error: no screen name';
   exit('Error: スクリーンネームが設定されてません');
 }
 
@@ -19,19 +19,17 @@ if(array_key_exists('sn',$_GET)){
 
 // APIキーは外部ファイルに記述して取得
 require_once('twitterAPIkey.php');
-// const API_KEY = ''; // APIキー
-// const API_SECRET = ''; // APIシークレット
-// const ACCESS_TOKEN = '';	 // アクセストークン
-// const ACCESS_TOKEN_SECRET = ''; //アクセストークンシークレット
+// const API_KEY = 'aaaaa'; // APIキー
+// const API_SECRET = 'bbbbb'; // APIシークレット
+// const ACCESS_TOKEN = 'ccccc';	 // アクセストークン
+// const ACCESS_TOKEN_SECRET = 'ddddd'; //アクセストークンシークレット
 
 $request_url = 'https://api.twitter.com/1.1/users/show.json';		// エンドポイント
 $request_method = 'GET' ;
 
 	// パラメータA (オプション)
 	$params_a = array(
-//		"user_id" => "1528352858",
 		"screen_name" => $screenName,
-//		"include_entities" => "true",
 	) ;
 
 	// キーを作成する (URLエンコードする)
@@ -98,11 +96,6 @@ $request_method = 'GET' ;
 		$request_url .= '?' . http_build_query( $params_a ) ;
 	}
 
-	// オプションがある場合、コンテキストにPOSTフィールドを作成する (GETの場合は不要)
-//	if( $params_a ) {
-//		$context['http']['content'] = http_build_query( $params_a ) ;
-//	}
-
 	// cURLを使ってリクエスト
 	$curl = curl_init() ;
 	curl_setopt( $curl, CURLOPT_URL , $request_url ) ;
@@ -110,10 +103,8 @@ $request_method = 'GET' ;
 	curl_setopt( $curl, CURLOPT_CUSTOMREQUEST , $context['http']['method'] ) ;	// メソッド
 	curl_setopt( $curl, CURLOPT_SSL_VERIFYPEER , false ) ;	// 証明書の検証を行わない
 	curl_setopt( $curl, CURLOPT_RETURNTRANSFER , true ) ;	// curl_execの結果を文字列で返す
-	curl_setopt( $curl, CURLOPT_HTTPHEADER , $context['http']['header'] ) ;	// ヘッダー
-//	if( isset( $context['http']['content'] ) && !empty( $context['http']['content'] ) ) {		// GETの場合は不要
-//		curl_setopt( $curl , CURLOPT_POSTFIELDS , $context['http']['content'] ) ;	// リクエストボディ
-//	}
+	curl_setopt( $curl, CURLOPT_HTTPHEADER , $context['http']['header'] ) ;
+	
 	curl_setopt( $curl , CURLOPT_TIMEOUT , 5 ) ;	// タイムアウトの秒数
 	$res1 = curl_exec( $curl ) ;
 	$res2 = curl_getinfo( $curl ) ;
@@ -121,23 +112,6 @@ $request_method = 'GET' ;
 
 	// 取得したデータ
 	$json = substr( $res1, $res2['header_size'] ) ;		// 取得したデータ(JSONなど)
-	$header = substr( $res1, 0, $res2['header_size'] ) ;	// レスポンスヘッダー (検証に利用したい場合にどうぞ)
 
 	exit($json); 
 	//取得したjsonをそのまま出力して終了
-
-	// $obj = json_decode( $json );
-  // if(strpos($json,'error')){
-	// 	exit($json);
-  // }
-
-	// [cURL]ではなく、[file_get_contents()]を使うには下記の通りです…
-	// $json = file_get_contents( $request_url , false , stream_context_create( $context ) ) ;
-
-	// JSONをオブジェクトに変換
-  
-  // $twName = $obj->name;
-  // $twIconUrl = $obj->profile_image_url;
-  // $twIconUrl = str_replace('_normal.','.',$twIconUrl);
-
-	// echo $twName . ','. $twIconUrl;
