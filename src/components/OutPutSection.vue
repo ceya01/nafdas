@@ -18,7 +18,6 @@ export default {
   },
   methods: {
     onClickPrint(evt) {
-      //console.log("onClickPrint:", evt)
       window.print();
     },
     //旧機能　名札部分をHTML化　2019/06/22現在未使用

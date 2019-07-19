@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 Vue.use(Vuex)
 
@@ -42,13 +41,6 @@ export default new Vuex.Store({
       state.twitterIcon = payload
     },
     setOption (state, payload) {
-      // console.log('setOption1', payload)
-      // payload.fontSize = payload.fontSize > 4 ? payload.fontSize : 4
-      // payload.fontSize = payload.fontSize < 40 ? payload.fontSize : 40
-      // payload.numLine = payload.numLine > 1 ? payload.numLine : 1
-      // payload.numLine = payload.numLine < 3 ? payload.numLine : 3
-
-      // console.log('setOption2', payload)
       state.option = payload
     }
   },
@@ -58,7 +50,6 @@ export default new Vuex.Store({
       commit('setTwitterID', message)
       // ajaxでphp呼んで、twitterIDを入力して、icon,nameを取得し、storeに保存
       const url = process.env.APIURL_GET_TWITTER_DATA
-      // console.log(this.getters.option)
       let newOption = this.getters.option
 
       axios.get(url + '?sn=' + message).then( // sn: screen name
@@ -76,10 +67,8 @@ export default new Vuex.Store({
           commit('setTwitterIcon', imageURL)
 
           // 名前文字数に合わせてフォントサイズを変更
-          let numBytes = getStrBytes(name) // 暫定的に２バイト文字対応
-          // let numBytes = name.length * 2
+          let numBytes = getStrBytes(name)
 
-          // console.log({numBytes})
           if (numBytes <= 4) {
             newOption.fontSize = 24
             newOption.numLine = 1
@@ -90,8 +79,6 @@ export default new Vuex.Store({
             newOption.fontSize = 8
             newOption.numLine = 2
           }
-          // console.log(this.getters.option)
-          // console.log({newOption})
           commit('setOption', newOption)
         }).catch(
         function (error) {

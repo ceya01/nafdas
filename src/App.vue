@@ -17,7 +17,7 @@
 <script>
 import HeaderInner from "@/components/HeaderInner"
 import InputSection from "@/components/InputSection"
-import NameCard from "@/components/NameCard"
+//import NameCard from "@/components/NameCard"
 import NameCardSection from "@/components/NameCardSection"
 import Option from "@/components/Option"
 import OutPutSection from "@/components/OutPutSection"
@@ -31,7 +31,7 @@ export default {
   components: {
     HeaderInner,
     InputSection,
-    NameCard,
+  //  NameCard,
     NameCardSection,
     Option,
     OutPutSection,

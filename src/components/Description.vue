@@ -17,7 +17,8 @@
       li iOS,Android の場合、印刷でpdfを保存し、<a href="https://www.printing.ne.jp/index_p.html">セブンイレブンのnetprint</a> などのアプリをうまく活用すれば印刷できるかもしれません。 
     h2.__changeLog 更新履歴
     ul
-      li 2019/07/19 <br> ver 1.1.1 <br>　説明文・デザイン微調整<br>　制作後記・github等へのリンク追加
+      li 2019/07/19 <br> ver 1.1.2 <br>　説明文・デザイン微調整<br>　制作後記・github等へのリンク追加
+      li 2019/07/19 <br> ver 1.1.1 <br>　シェアボタン追加
       li 2019/06/22 <br> ver 1.1 <br>　ダークモード印刷機能<br>　文字サイズの自動調整
       li 2019/06/22 <br> ver 1.0 <br>　基本機能のみ
       li 2019/06/15 <br> ver 0.1 <br>　プロトタイプ版公開

@@ -50,14 +50,12 @@ export default {
 
   methods: {
     onChangeFontSize: function(evt) {
-      //console.log('onChangeFontSize',evt.target.value,this.$store.getters.option.fontSize,this.vmFontSize);
       let newFontSize = evt.target.value
       newFontSize = newFontSize > 4 ? newFontSize : 4
       newFontSize = newFontSize < 40 ? newFontSize : 40
       this.fontSize = newFontSize
     },
     onChangeNumLine: function(evt) {
-      //console.log('onChangeFontSize',evt.target.value,this.$store.getters.option.fontSize,this.vmFontSize);
       let newNumLine = evt.target.value
       newNumLine = newNumLine > 1 ? newNumLine : 1
       newNumLine = newNumLine < 3 ? newNumLine : 3
