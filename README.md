@@ -1,7 +1,8 @@
-# nametag_maker
+# なふだす！
+> オフ会用の名札を簡単に作成・印刷するツール
 
-> なふだす！
-オフ会用の名札を簡単に作成・印刷するツール
+- [アプリページ](https://ce-ya.net/app/nafdas/)
+- [制作後記](https://ce-ya.net/nafdas-postscript)
 
 ## Build Setup
 
@@ -17,15 +18,5 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

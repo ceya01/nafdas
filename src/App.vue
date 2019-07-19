@@ -11,7 +11,8 @@
     Description
     ShareSection
   footer.l-footer 
-    span.__text なふだす | © 2019- <a href="https://ce-ya.net" target="_blank">ceya-net</a>
+    FooterInner
+    //-span.__text なふだす | © 2019- <a href="https://ce-ya.net" target="_blank">ceya-net</a>
     
 </template>
 
@@ -24,6 +25,7 @@ import Option from "@/components/Option"
 import OutPutSection from "@/components/OutPutSection"
 import Description from "@/components/Description"
 import ShareSection from "@/components/ShareSection"
+import FooterInner from "@/components/FooterInner"
 import "ress"
 
 export default {
@@ -89,12 +91,6 @@ $bgDark: slategrey;
   padding: 1em 0;
   bottom: 0;
   width: 100%;
-  >.__text{
-    color: #fff;  
-    >a{
-      color: #fff;
-    }
-  }
   @media print{
     display: none;
   }
