@@ -12,8 +12,6 @@
     ShareSection
   footer.l-footer 
     FooterInner
-    //-span.__text なふだす | © 2019- <a href="https://ce-ya.net" target="_blank">ceya-net</a>
-    
 </template>
 
 <script>
@@ -38,7 +36,8 @@ export default {
     Option,
     OutPutSection,
     Description,
-    ShareSection
+    ShareSection,
+    FooterInner
   }
 }
  
